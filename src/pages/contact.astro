@@ -1,0 +1,25 @@
+---
+import { vipContacts } from '~/contact';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactCard from '~/components/widgets/ContactCard.astro'
+
+const metadata = {
+  title: 'Contact',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="Contact" title="Let's Connect!" />
+
+  {vipContacts.map((c) => <ContactCard
+    name={c.name}
+    title={c.title}
+    email={c.email}
+    bio={c.bio}
+    image={c.img}
+  />)}
+
+</Layout>

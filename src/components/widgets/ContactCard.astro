@@ -1,0 +1,38 @@
+---
+import Content from "./Content.astro";
+
+const {
+  name,
+  title,
+  image,
+  email,
+  bio
+} = Astro.props;
+---
+
+<Content
+  image={image}
+  items={[
+    {
+      icon: 'tabler:mail',
+      callToAction: {
+        variant: 'link',
+        text: email,
+        href: `mailto:${email}`
+      }
+    }
+  ]}
+  classes={{
+    container: 'shadow-md max-w-4xl mb-10'
+  }}
+>
+
+<Fragment slot='content'>
+  <div class="dark:text-white">
+    <h1 class="text-4xl font-bold">{name}</h1>
+    <h1 class="text-accent text-lg">{title}</h1>
+    <span>{bio}</span>
+  </div>
+</Fragment>
+
+</Content>

@@ -1,0 +1,133 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Link from '~/components/ui/Link.astro';
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Project from '~/components/Project.astro';
+import { projects } from '~/projects';
+
+const metadata = {
+  title: 'ECE 398 - Vertically Integrated Projects',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Projects',
+        href: '#projects',
+        icon: 'tabler:tool',
+      },
+      {
+        variant: 'secondary',
+        text: 'About',
+        href: '#about',
+        icon: 'tabler:book',
+      },
+    ]}
+    image={{ src: '~/assets/images/board-hero.png', alt: 'AstroWind Hero Image' }}
+  >
+    <Fragment slot="title">
+      ECE 398 Vertically Integrated Projects at <span class="text-accent">Bradley University</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">Vertically Integrated Projects</span> at Bradley is changing the way incoming engineers learn to work, <span class="text-accent">one project at a time.</span></span
+      >
+    </Fragment>
+  </Hero>
+
+  <!-- About Us Hero ***** -->
+
+  <Hero
+    id='about'
+    tagline='About Us'
+    title='Behind ECE 398 at Bradley University'
+  >
+    <Fragment slot="content">
+      <p>ECE 398 at Bradley University, within the Electrical and Computer Engineering department, is a branch of 
+        <Link href="https://vip.gatech.edu">Georgia Tech's Vertically Integrated Projects</Link>, or <b>VIP</b>. 
+        In VIP, students collaborate to produce projects to gain hands-on experience with engineering and product development.
+      </p>
+      <p>
+        All of this, led by students, for students.
+      </p>
+    </Fragment>
+  </Hero>
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    stats={[
+      { title: 'Projects', amount: projects.length },
+      { title: 'Students Through Program', amount: '45' },
+      { title: 'Semesters Running', amount: '4' },
+    ]}
+  />
+
+  <!-- Mission widget -->
+
+  <Features
+    id="features"
+    tagline="Our Mission"
+    title="What VIP at Bradley University Means"
+    items={[
+      {
+        title: 'Vertical Integration',
+        description:
+          'Expose students to varying types of experience by welcoming all academic levels from undergrad to graduate.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Building Tomorrow\'s Engineers',
+        description:
+          'Giving students an avenue to experience what fields interest them early, giving them a head start when reaching industry.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Project Based',
+        description:
+          'Use project-based learning to emphasize the combination of technical and practical skills within our field.',
+        icon: 'tabler:clipboard',
+      },
+      {
+        title: 'Student Led',
+        description:
+          'Students build leadership skills by leading their peers, with instructors taking on a supportive role.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  />
+
+  <!-- Projects -->
+
+  <Hero
+    id='projects'
+    tagline='Projects'
+    title="What We're Working On"
+    subtitle='The projects currently underway at VIP at Bradley University'
+  >
+  </Hero>
+
+  {
+    projects.map((p, i) => {
+      return <Project project={p} isAfterProject={true} reversed={i % 2 != 0}></Project>
+    })
+  }
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="Learn more in our blog"
+    information={`Here, you can find information about our projects, as well as technical and informational posts`}
+  />
+</Layout>
