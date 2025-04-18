@@ -41,26 +41,22 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">Vertically Integrated Projects</span> at Bradley is changing the way incoming engineers learn to work, <span class="text-accent">one project at a time.</span></span
+        <span class="font-semibold">Vertically Integrated Projects</span> at Bradley is changing the way incoming engineers
+        learn to work, <span class="text-accent">one project at a time.</span></span
       >
     </Fragment>
   </Hero>
 
   <!-- About Us Hero ***** -->
 
-  <Hero
-    id='about'
-    tagline='About Us'
-    title='Behind ECE 398 at Bradley University'
-  >
+  <Hero id="about" tagline="About Us" title="Behind ECE 398 at Bradley University">
     <Fragment slot="content">
-      <p>ECE 398 at Bradley University, within the Electrical and Computer Engineering department, is a branch of 
-        <Link href="https://vip.gatech.edu">Georgia Tech's Vertically Integrated Projects</Link>, or <b>VIP</b>. 
-        In VIP, students collaborate to produce projects to gain hands-on experience with engineering and product development.
-      </p>
       <p>
-        All of this, led by students, for students.
+        ECE 398 at Bradley University, within the Electrical and Computer Engineering department, is a branch of
+        <Link href="https://vip.gatech.edu">Georgia Tech's Vertically Integrated Projects</Link>, or <b>VIP</b>. In VIP,
+        students collaborate to produce projects to gain hands-on experience with engineering and product development.
       </p>
+      <p>All of this, led by students, for students.</p>
     </Fragment>
   </Hero>
 
@@ -88,7 +84,7 @@ const metadata = {
         icon: 'tabler:school',
       },
       {
-        title: 'Building Tomorrow\'s Engineers',
+        title: "Building Tomorrow's Engineers",
         description:
           'Giving students an avenue to experience what fields interest them early, giving them a head start when reaching industry.',
         icon: 'tabler:tool',
@@ -111,16 +107,15 @@ const metadata = {
   <!-- Projects -->
 
   <Hero
-    id='projects'
-    tagline='Projects'
+    id="projects"
+    tagline="Projects"
     title="What We're Working On"
-    subtitle='The projects currently underway at VIP at Bradley University'
-  >
-  </Hero>
+    subtitle="The projects currently underway at VIP at Bradley University"
+  />
 
   {
     projects.map((p, i) => {
-      return <Project project={p} isAfterProject={true} reversed={i % 2 != 0}></Project>
+      return <Project project={p} isAfterProject={true} reversed={i % 2 != 0} />;
     })
   }
 

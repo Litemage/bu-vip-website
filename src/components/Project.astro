@@ -1,34 +1,30 @@
 ---
-import type { Project } from '~/types'
-import Content from './widgets/Content.astro'
+import type { Project } from '~/types';
+import Content from './widgets/Content.astro';
 
 interface Props {
-    project: Project
-    isAfterProject: boolean
-    reversed: boolean
+  project: Project;
+  isAfterProject: boolean;
+  reversed: boolean;
 }
 
-const {
-    project,
-    isAfterProject,
-    reversed
-} = Astro.props
-
+const { project, isAfterProject, reversed } = Astro.props;
 ---
+
 <Content
-    image={project.img}
-    isAfterContent={isAfterProject}
-    isReversed={reversed}
-    callToAction={{
-        variant: 'primary',
-        text: 'Learn More',
-        href: project.href
-    }}
+  image={project.img}
+  isAfterContent={isAfterProject}
+  isReversed={reversed}
+  callToAction={{
+    variant: 'primary',
+    text: 'Learn More',
+    href: project.href,
+  }}
 >
-    <Fragment slot="content">
-        <div class="dark:text-white">
-            <h1 class="text-5xl font-bold">{project.name}</h1>
-            <p>{project.description}</p>
-        </div>
-    </Fragment>
+  <Fragment slot="content">
+    <div class="dark:text-white">
+      <h1 class="text-5xl font-bold">{project.name}</h1>
+      <p>{project.description}</p>
+    </div>
+  </Fragment>
 </Content>

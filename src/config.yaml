@@ -11,7 +11,7 @@ metadata:
   title:
     default: ECE-398
     template: '%s — Vertically Integrated Pojrects'
-  description: "Bradley University ECE 398 Vertically Integrated Projects Home Page"
+  description: 'Bradley University ECE 398 Vertically Integrated Projects Home Page'
   robots:
     index: true
     follow: true
@@ -22,7 +22,6 @@ metadata:
         width: 1200
         height: 628
     type: website
-
 
 i18n:
   language: en

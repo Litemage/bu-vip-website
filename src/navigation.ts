@@ -5,26 +5,26 @@ export const headerData = {
   links: [
     {
       text: 'Home',
-      href: '/'
+      href: '/',
     },
     {
       text: 'Blog',
-      href: getBlogPermalink()
+      href: getBlogPermalink(),
     },
     {
       text: 'Contact',
-      href: '/contact'
+      href: '/contact',
     },
     {
       text: 'Projects',
-      links: projects.map((p) => {return {text: p.name, href: p.href}})
-    }
+      links: projects.map((p) => {
+        return { text: p.name, href: p.href };
+      }),
+    },
   ],
 };
 
 export const footerData = {
-  links: [
-  ],
-  secondaryLinks: [
-  ],
+  links: [],
+  secondaryLinks: [],
 };

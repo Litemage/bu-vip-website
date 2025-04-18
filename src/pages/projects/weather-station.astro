@@ -10,7 +10,6 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  
   <!-- Hero2 Widget ******************* -->
 
   <Hero2
@@ -20,14 +19,14 @@ const metadata = {
         variant: 'primary',
         text: 'Visit Our Website',
         href: 'https://weather.jacobsimeone.net',
-        target: '_blank'
+        target: '_blank',
       },
       {
         variant: 'secondary',
         text: 'Read our Docs',
         href: 'https://litemage.github.io/vip-weather-docs/',
-        target: '_blank'
-      }
+        target: '_blank',
+      },
     ]}
     image={{
       src: '~/assets/images/weather-station-hero.png',
@@ -41,7 +40,6 @@ const metadata = {
     <Fragment slot="subtitle">
       Weather data collection on <span class="text-accent">Bradley University's</span> campus.
     </Fragment>
-
   </Hero2>
 
   <!-- Content Widget **************** -->
@@ -49,28 +47,30 @@ const metadata = {
   <Content
     image={{
       src: '~/assets/images/ws-web-screenshot.png',
-      alt: 'screenshot of a set of file folders on GitHub'
+      alt: 'screenshot of a set of file folders on GitHub',
     }}
     items={[
       {
         title: 'Public API',
-        description: "The Bradley Weather Station project hosts a public API where anyone can access weather data from Bradley University's campus",
-        icon: "tabler:api"
+        description:
+          "The Bradley Weather Station project hosts a public API where anyone can access weather data from Bradley University's campus",
+        icon: 'tabler:api',
       },
       {
-        title: "Website",
-        description: "This project also exposes a public website that anyone can use to look at the weather data",
-        icon: "tabler:cloud"
+        title: 'Website',
+        description: 'This project also exposes a public website that anyone can use to look at the weather data',
+        icon: 'tabler:cloud',
       },
       {
-        title: "Scalable",
-        description: "The weather station (although not currently implemented) has back-end support for collecting data from multiple stations",
-        icon:"tabler:crane"
+        title: 'Scalable',
+        description:
+          'The weather station (although not currently implemented) has back-end support for collecting data from multiple stations',
+        icon: 'tabler:crane',
       },
       {
-        title: "Open-Source",
-        description: "Code and hardware hosted publicly, for anyone to build",
-        icon:"tabler:brand-github"
+        title: 'Open-Source',
+        description: 'Code and hardware hosted publicly, for anyone to build',
+        icon: 'tabler:brand-github',
       },
     ]}
   >
@@ -90,14 +90,12 @@ const metadata = {
       },
       {
         title: 'Humidity',
-        description:
-          'Relative humidity, as reported by our on-board environmental sensor',
+        description: 'Relative humidity, as reported by our on-board environmental sensor',
         icon: 'tabler:droplet',
       },
       {
         title: 'Pressure',
-        description:
-          'Can detect pressure, in kPa',
+        description: 'Can detect pressure, in kPa',
         icon: 'tabler:steam',
       },
       {
