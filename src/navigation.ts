@@ -5,7 +5,7 @@ export const headerData = {
   links: [
     {
       text: 'Home',
-      href: '/',
+      href: '/bu-vip-website',
     },
     {
       text: 'Blog',
@@ -13,7 +13,7 @@ export const headerData = {
     },
     {
       text: 'Contact',
-      href: '/contact',
+      href: '/bu-vip-website/contact',
     },
     {
       text: 'Projects',
