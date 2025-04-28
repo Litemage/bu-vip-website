@@ -24,6 +24,10 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
 
+  // For Github pages
+  site: 'https://litemage.github.io',
+  base: 'bu-vip-website',
+
   integrations: [
     tailwind({
       applyBaseStyles: false,
