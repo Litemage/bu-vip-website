@@ -41,6 +41,8 @@ jobs:
       - run: npm run check
 
   deploy:
+    permissions:
+      id-token: write # This is required for requesting the JWT
     needs: build
     runs-on: ubuntu-latest
     environment:
