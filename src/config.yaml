@@ -1,7 +1,7 @@
 site:
   name: ECE-398
-  site: 'https://astrowind.vercel.app'
-  base: '/'
+  site: 'https://litemage.github.io'
+  base: '/bu-vip-website'
   trailingSlash: false
 
   googleSiteVerificationId: none
