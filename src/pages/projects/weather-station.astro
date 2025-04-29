@@ -3,6 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Content from '~/components/widgets/Content.astro';
+import Link from '~/components/ui/Link.astro';
 
 const metadata = {
   title: 'BU Weather Station Project Page',
@@ -38,7 +39,8 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Weather data collection on <span class="text-accent">Bradley University's</span> campus.
+      Weather data collection on <span class="text-accent">Bradley University's</span> campus. You can 
+      <Link href="/bu-vip-website/weather-station">read our blog</Link> too.
     </Fragment>
   </Hero2>
 
@@ -102,6 +104,11 @@ const metadata = {
         title: 'Rain',
         description: 'The station can detect if water is present on a top sensor or not, indicating rain.',
         icon: 'tabler:cloud-rain',
+      },
+      {
+        title: 'Light Intensity',
+        description: 'The station can detect the intensity of light currently shining on the station.',
+        icon: 'tabler:sun',
       },
     ]}
     image={{
