@@ -1,20 +1,25 @@
 ---
-publishDate: 2025-04-16T00:00:00Z
-author: Jacob Simeone
-title: O.A.S.I.S Object Avoidance Robot
-excerpt: An excerpt here of stuff that I can show to other people. Must be long too. Boy do I love chicken
+publishDate: 2025-05-03T00:00:00Z
+author: Allison Keli
+title: O.A.S.I.S Autonomous Rover
+excerpt: Small autonomous rover that can wander and avoid obstacles
 image: ~/assets/images/oasis-projects.jpg
 category: Projects
 tags:
   - projects
+  - showcase
 ---
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+O.A.S.I.S. stands for Obstacle Avoidance System with Integrated Sensing. A team of Bradley university Junior and Freshman electrical engineering students worked together to bring this project to completion during the 2025 spring semester. With only an idea and some scrapped parts, the O.A.S.I.S. team was able to meet their main goals: redesign the rover, build it, program an obstacle detection/avoidance system, and create an RC mode for testing.
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+![software block diagram](~/assets/images/oasis-rover.png)
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+The purpose of this course, ECE 398 (Vertically Integrated Project) is to encourage students to learn from each other. Every person on the O.A.S.I.S. team had unique skills and experiences to bring to the table. Team members came in with a passion for learning and the determination to make things work. 
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+The team chose to use an ESP32 for this project. These microcontrollers are able to use Wi-Fi and Bluetooth features. The team used these features to connect a PS4 controller to the rover, so that users can switch between autonomous (obstacle-avoidance) mode and RC mode.
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+On the front of the rover, there are three ultrasonic sensors. These detect obstacles as O.A.S.I.S. roams in autonomous mode. The left and right sensors are angled outward for better obstacle detection. The rover has been programmed to take in data about where an obstacle has been detected; it uses this information to avoid obstacles effectively.
+
+![software block diagram](~/assets/images/oasis-software-chart.png)
+
+O.A.S.I.S. also has two DC motors that can turn in different directions or speeds to make turns. The team used an H-bridge chip for motor control.
