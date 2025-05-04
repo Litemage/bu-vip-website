@@ -10,32 +10,31 @@ tags:
   - showcase
 ---
 
-Data acquisition and automation are transforming how we manage resources, especially in agricultural and animal care settings. The Water Monitor System, affectionately dubbed “Chicken Nanny,” is a project designed to eliminate the hassle of manually checking water levels in animal water tanks. By integrating an ultrasonic sensor, microcontroller, and wireless communication, this system ensures animals always have access to water while notifying caretakers when refills are needed.  
+Data acquisition and automation are transforming how we manage resources, especially in agricultural and animal care settings. The Water Monitor System, affectionately dubbed “Chicken Nanny,” is a project designed to eliminate the hassle of manually checking water levels in animal water tanks. By integrating an ultrasonic sensor, microcontroller, and wireless communication, this system ensures animals always have access to water while notifying caretakers when refills are needed.
 
-# System 
+# System
 
 An overview of the system design for the Water Monitor System looks like this
 
 **Detection System**
 
-* Ultrasonic Sensor (HC-SR04) → Measures water level  
-* ESP32 Microcontroller → Processes data and triggers alerts  
-* LoRa Radio (RYLR896) → Transmits low-level warnings  
-
+- Ultrasonic Sensor (HC-SR04) → Measures water level
+- ESP32 Microcontroller → Processes data and triggers alerts
+- LoRa Radio (RYLR896) → Transmits low-level warnings
 
 **Notification System**
 
-* LoRa Radio (RYLR896) → Receives transmissions  
-* Raspberry Pi 3B+ → Parses data and sends alerts  
-* Pushbullet API → Delivers SMS notifications to users  
+- LoRa Radio (RYLR896) → Receives transmissions
+- Raspberry Pi 3B+ → Parses data and sends alerts
+- Pushbullet API → Delivers SMS notifications to users
 
 ![block diagram of water monitor system](~/assets/images/water-monitor-sysblock.png)
 
-The system operates in two stages:  
+The system operates in two stages:
 
-1. The detection system continuously checks water levels using an ultrasonic sensor. If the level drops below a set threshold, the ESP32 sends an alert via LoRa radio.  
+1. The detection system continuously checks water levels using an ultrasonic sensor. If the level drops below a set threshold, the ESP32 sends an alert via LoRa radio.
 
-2. The notification system, powered by a Raspberry Pi, receives the alert and forwards it as a text message using [Pushbullet](https://www.pushbullet.com/).  
+2. The notification system, powered by a Raspberry Pi, receives the alert and forwards it as a text message using [Pushbullet](https://www.pushbullet.com/).
 
 # Hardware Design
 
@@ -43,23 +42,22 @@ How the water monitor project goes together, mechanically.
 
 **Key Components**
 
-* Ultrasonic Sensor (HC-SR04) – Measures distance to water surface.  
-* ESP32-WROOM-32 – Processes measurements and sends radio transmissions.  
-* LoRa Radios (RYLR896) – Enable long-range wireless communication.  
-* Raspberry Pi 3B+ – Processes alerts and sends notifications.  
-* 5V Power Supply – Powers the ESP32, ultrasonic sensor, and one of the radios.  
-* Polycase Enclosure – Houses electronics securely on the tank.  
+- Ultrasonic Sensor (HC-SR04) – Measures distance to water surface.
+- ESP32-WROOM-32 – Processes measurements and sends radio transmissions.
+- LoRa Radios (RYLR896) – Enable long-range wireless communication.
+- Raspberry Pi 3B+ – Processes alerts and sends notifications.
+- 5V Power Supply – Powers the ESP32, ultrasonic sensor, and one of the radios.
+- Polycase Enclosure – Houses electronics securely on the tank.
 
 ![water monitor hardware](~/assets/images/water-monitor-hardware.png)
 
+**Innovative Mounting Solutions**
 
-**Innovative Mounting Solutions** 
+To ensure accurate readings, the team designed 3D-printed mounts for the ultrasonic sensor, including:
 
-To ensure accurate readings, the team designed 3D-printed mounts for the ultrasonic sensor, including:  
-
-* A pipe stabilizer to reduce water surface and tank wall interference (is not 3D printed)
-* A lid and pipe mount for easy installation and removal.  
-* A waterproof cable gland sealed with silicone sealant to maintain an airtight seal.  
+- A pipe stabilizer to reduce water surface and tank wall interference (is not 3D printed)
+- A lid and pipe mount for easy installation and removal.
+- A waterproof cable gland sealed with silicone sealant to maintain an airtight seal.
 
 ![water monitor mounting hardware](~/assets/images/water-monitor-mounting.png)
 
@@ -69,29 +67,29 @@ How the software running the Water Monitor System works.
 
 **Transmitter**
 
-* Programmed on the ESP32
-* Written in C++ with the Arduino framework.  
-* Continuously measures water level and transmits alerts via LoRa when levels are low.  
-* Features an LED indicator to confirm message transmission.  
+- Programmed on the ESP32
+- Written in C++ with the Arduino framework.
+- Continuously measures water level and transmits alerts via LoRa when levels are low.
+- Features an LED indicator to confirm message transmission.
 
 **Bridge**
 
-* Programmed on the Raspberry Pi
-* Written in Python.  
-* Receives LoRa transmissions, parses data, and sends Pushbullet notifications.  
-* Requires a Pushbullet Access Token for SMS functionality.  
+- Programmed on the Raspberry Pi
+- Written in Python.
+- Receives LoRa transmissions, parses data, and sends Pushbullet notifications.
+- Requires a Pushbullet Access Token for SMS functionality.
 
 ![water monitor software](~/assets/images/water-monitor-software.png)
 
 # Challenges & Solutions
 
-1. Sensor Accuracy – Water ripples and ridges in the tank walls caused inconsistent readings. Solution: Added a stabilizing pipe to reduce disturbances.  
+1. Sensor Accuracy – Water ripples and ridges in the tank walls caused inconsistent readings. Solution: Added a stabilizing pipe to reduce disturbances.
 
-2. Airtight Seal – Drilling the tank lid risked leaks. Solution: Used silicone sealant and cable glands for airtightness.  
+2. Airtight Seal – Drilling the tank lid risked leaks. Solution: Used silicone sealant and cable glands for airtightness.
 
-3. Notification Reliability – Pushbullet occasionally rejected tokens for no apparent reason. Solution: Implemented error handling and token regeneration.  
+3. Notification Reliability – Pushbullet occasionally rejected tokens for no apparent reason. Solution: Implemented error handling and token regeneration.
 
-# Cost Breakdown  
+# Cost Breakdown
 
 The total project cost for the Water Monitor System came to $270.05. The Polycase enclosure and mounting components represented the largest expense at $109.01, followed by the water tank at $52.37. The last significant cost was the Raspberry Pi 3B+ itself, at $44.40.
 
@@ -99,11 +97,11 @@ While this budget delivered a fully functional system, potential cost reductions
 
 # Future Improvements
 
-* Sleep Mode – Adding sleep cycles to the ESP32 to conserve power.  
-* Solar/Battery Power – Making the system portable and off-grid capable.  
-* Direct User Control – Adding an easy way to change the threshold and notification values instead of directly modifying the program.  
-* Cost/Size Reduction – Exploring cheaper enclosures and alternative sensors.  
+- Sleep Mode – Adding sleep cycles to the ESP32 to conserve power.
+- Solar/Battery Power – Making the system portable and off-grid capable.
+- Direct User Control – Adding an easy way to change the threshold and notification values instead of directly modifying the program.
+- Cost/Size Reduction – Exploring cheaper enclosures and alternative sensors.
 
 # Conclusion
 
-The Water Monitor System successfully automates water level tracking, providing a reliable solution for animal care. By combining IoT hardware, wireless communication, and custom software, the team created a functional and scalable system. Future iterations could expand its use to agriculture, industrial tanks, or even home aquariums.  
+The Water Monitor System successfully automates water level tracking, providing a reliable solution for animal care. By combining IoT hardware, wireless communication, and custom software, the team created a functional and scalable system. Future iterations could expand its use to agriculture, industrial tanks, or even home aquariums.

@@ -16,17 +16,17 @@ The BU Weather Station is open-source, allowing anyone to learn from (and hopefu
 
 **Links:**
 
-* [Weather Station GitHub](https://github.com/ImtiazAtBradley/VIP_Weather)
-* [Website](https://weather.jacobsimeone.net)
-* [Documentation](https://litemage.github.io/vip-weather-docs/)
-* [Cad (OnShape)](https://cad.onshape.com/documents/38c15368c41f2224b0adceca/w/e0d05cb6b75a73d47582f798/e/6f88f03cdb676fd77e352c81)
+- [Weather Station GitHub](https://github.com/ImtiazAtBradley/VIP_Weather)
+- [Website](https://weather.jacobsimeone.net)
+- [Documentation](https://litemage.github.io/vip-weather-docs/)
+- [Cad (OnShape)](https://cad.onshape.com/documents/38c15368c41f2224b0adceca/w/e0d05cb6b75a73d47582f798/e/6f88f03cdb676fd77e352c81)
 
 # System-Block Diagram
 
 ![block diagram for weather station](~/assets/images/ws-big-block-diagram.png)
 
-The BU Weather Station follows a typical setup for IoT devices: an embedded controller is on-board the Weather Station itself 
-(top-left in diagram), which measures the digital signals output by sensors and then transmits that data over the 
+The BU Weather Station follows a typical setup for IoT devices: an embedded controller is on-board the Weather Station itself
+(top-left in diagram), which measures the digital signals output by sensors and then transmits that data over the
 radio. Radio data is received by a gateway, which posts data to the internet.
 
 The radios implemented are RYLR896 LoRa radios. [LoRa](https://en.wikipedia.org/wiki/LoRa) is a long-range proprietary
@@ -58,13 +58,13 @@ can read.
 The [BME680](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme680-ds001.pdf) by Bosch
 is a popular environmental sensor that is capable of measuring temperature, pressure, humidity, and theoretically: air quality.
 
-The Weather Station interfaces with the BME680 with the on-board controller over a serial bus, allowing us to pull the 
+The Weather Station interfaces with the BME680 with the on-board controller over a serial bus, allowing us to pull the
 data from the sensor every so often.
 
 ### Air Quality
 
 The BME680 has a VOC (Volatile Organic Compounds) sensor which reports kOhms of resistance to our controller. This value
-itself does not seem to represent air quality, and Bosch wants users to use their proprietary software in order to 
+itself does not seem to represent air quality, and Bosch wants users to use their proprietary software in order to
 calculate something linke air-quality-index. However: there seems to be open-source algorithms to fuse all the values
 of this sensor to calculate air quality. This is a future feature of the Weather Station.
 
@@ -75,7 +75,7 @@ For now, the Weather Station just reports the raw value from the VOC sensor, in 
 ![rtd](~/assets/images/rtd.png)
 
 The Weather Station uses an [RTD](https://en.wikipedia.org/wiki/Resistance_thermometer) (Resistive Temperature Device)
-to detect outdoor temperature. We picked an RTD due to its higher accuracy, with the trade-off of a lower response time. 
+to detect outdoor temperature. We picked an RTD due to its higher accuracy, with the trade-off of a lower response time.
 
 ### Custom Printed Circuit Board
 
@@ -91,17 +91,17 @@ The RTD sensor connects to this board, which provides an interface between the r
 ![control circuit board](~/assets/images/ws-control-board.png)
 
 The Weather Station control board carries or breaks out all the connections for sensors needed to be read by the
-microcontroller. The control board was created due to issues using proto-board to connect everything, such as 
+microcontroller. The control board was created due to issues using proto-board to connect everything, such as
 assembly time and shorts.
 
 # Hardware Design
 
-The Weather Station hardware was designed using [OnShape](https://www.onshape.com/en/), and is available to all using 
+The Weather Station hardware was designed using [OnShape](https://www.onshape.com/en/), and is available to all using
 the link at the top of this document. The part of the Weather Station that goes outside had some requirements:
 
-* Keep water off of cricitcal electronics
-* Pass cables through for external sensors and the solar panel
-* Well-ventilated to maintain accuracy of sensors mounted internally
+- Keep water off of cricitcal electronics
+- Pass cables through for external sensors and the solar panel
+- Well-ventilated to maintain accuracy of sensors mounted internally
 
 ## Water Sensor
 
@@ -126,10 +126,10 @@ The BME680 sensor is mounted internally against the vent, in order to keep it as
 
 ![solar panel with mount](~/assets/images/ws-solar.png)
 
-The BU Weather Station is powered through a solar panel, hooked up to a charge controller, and then a battery. The solar 
+The BU Weather Station is powered through a solar panel, hooked up to a charge controller, and then a battery. The solar
 panel tops off the battery during the day, and when there is no sun, the station relies on the battery for power.
 
-The solar panel is connected to the weather station through a connector on the bottom side of the enclosure, which 
+The solar panel is connected to the weather station through a connector on the bottom side of the enclosure, which
 leads to the electronics on the other side.
 
 # API
@@ -158,15 +158,15 @@ This API feeds our website: [weather.jacobsimeone.net](https://weather.jacobsime
 
 Unfortunately, due to some design decisions of the station: the cost is upwards of $400, which is on the more expensive
 side of these types of projects. To get the cost down, we would probably move away from using an RTD as a temperature
-sensor, changing the enclosure to something cheaper, finding a different mounting solution, and removing custom 
+sensor, changing the enclosure to something cheaper, finding a different mounting solution, and removing custom
 circuit boards.
 
 Another way cost could be driven down is by potentially figuring out a way to use 3d-printed enclosures.
 
 # Potential Improvements
 
-* Reduce cost through simplified electronics and enclosure
-* Improve radio transmission format by moving to a new radio
-* Change enclosure to encourage venting, while keeping water off electronics
-* Attempt a 3d-printed enclosure
-* Improve API
+- Reduce cost through simplified electronics and enclosure
+- Improve radio transmission format by moving to a new radio
+- Change enclosure to encourage venting, while keeping water off electronics
+- Attempt a 3d-printed enclosure
+- Improve API
