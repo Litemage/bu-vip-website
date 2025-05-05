@@ -5,7 +5,7 @@ export const vipContacts: Array<Contact> = [
     name: 'Dr. Mohammad Imtiaz',
     title: 'Faculty Advisor for ECE 398',
     email: 'mimtiaz@bradley.edu',
-    bio: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam rem delectus labore commodi culpa sit facere sed velit, corporis quae et quia libero atque repellat voluptatem ipsa nostrum expedita. Aperiam.',
+    bio: 'Dr. Imtiaz is the faculty advisor for the ECE 398 VIP Class. He started the class at Bradley University in 2023 and supports student leadership in administering the class.',
     img: {
       src: '~/assets/images/imtiaz.jpg',
       alt: 'Dr. Mohammad Imtiaz',

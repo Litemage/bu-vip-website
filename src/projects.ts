@@ -19,25 +19,25 @@ export const projects: Array<Project> = [
       alt: 'wheeled robot with sensors',
     },
   },
-  {
-    name: 'Chess Board',
-    description:
-      'Automated chess board that will allow players to move against an AI while the chess board moves its own pieces.',
-    href: '/bu-vip-website/chess-board',
-    img: {
-      src: '~/assets/images/chess-board.png',
-      alt: 'computer graphic of a robot chess board',
-    },
-  },
-  {
-    name: 'Resistor Sorter',
-    description: 'A computer-controlled robotic gantry to sort resistors into standing bins',
-    href: '/bu-vip-website/resistor-sorter',
-    img: {
-      src: '~/assets/images/resistor-sorter.png',
-      alt: 'small metal gantry with plastic drawers',
-    },
-  },
+  // {
+  //   name: 'Chess Board',
+  //   description:
+  //     'Automated chess board that will allow players to move against an AI while the chess board moves its own pieces.',
+  //   href: '/bu-vip-website/chess-board',
+  //   img: {
+  //     src: '~/assets/images/chess-board.png',
+  //     alt: 'computer graphic of a robot chess board',
+  //   },
+  // },
+  // {
+  //   name: 'Resistor Sorter',
+  //   description: 'A computer-controlled robotic gantry to sort resistors into standing bins',
+  //   href: '/bu-vip-website/resistor-sorter',
+  //   img: {
+  //     src: '~/assets/images/resistor-sorter.png',
+  //     alt: 'small metal gantry with plastic drawers',
+  //   },
+  // },
   {
     name: 'Water Monitor',
     description: 'Automated system to alert users if the water in a chicken feeder has reached refilling levels',
