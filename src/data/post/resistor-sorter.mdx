@@ -1,0 +1,109 @@
+---
+publishDate: 2025-05-07T00:00:00Z
+author: Issac Hutley
+title: Resistor Sorter
+excerpt: Computer-Controlled Through-Hole Resistor Logistics Machine
+image: ~/assets/images/resistor-sorter.png
+category: Projects
+tags:
+  - projects
+---
+
+# The Messy Drawers Problem
+At Bradley University, there are a few electrical engineering labs that have 
+large storage drawers containing different passive components used for experiments, 
+one of which is through-hole resistors. 
+
+![through-hole resistors](~/assets/images/resistor-sorter/resistors.png)
+
+Because they are a core electrical component, we generally have lots of resistors 
+on hand in many drawers. This can be hard to manage logistically when many 
+students, some of whom have never seen these components before, need to remove 
+and replace resistors correctly. The incorrect storage of these resistors has 
+led to many headaches and frustrated trips back to storage to fetch a few 
+resistors in the hope that one is of the correct value.
+
+The Resistor Sorter machine is designed to sort resistors of different values 
+into the correct storage drawers, thus solving the problem of manually trusting
+puny humans to return resistors to the correct bin. 
+
+# Project Design
+
+The project is planned to take multiple semesters to complete due to complexity, 
+but we accomplished our goal of getting the machine to move to different drawers, 
+given the value of an incoming resistor, within two semesters. 
+
+The Resistor Sorter is made from a number of different components. 
+The most important of which are the stepper motors and the Arduino. The first 
+stepper motor moves the gantry left and right, and the second moves the entire 
+platform that the gantry is on up and down. The Arduino uses code and a pair of 
+stepper motor drivers to drive the motors on the gantry and move the end-effector.
+
+![system block diagram](~/assets/images/resistor-sorter/block-diagram.png)
+
+The code lets the gantry move to its starting position from startup, no matter
+where it is, and from there move to any position that is input (within the
+bounds of the cabinets). It can return to its starting position using a homing
+program and a limit switch, inspired by many 3D printers. It can then take any
+resistor value that’s input and move to the corresponding cabinet.
+
+## Hardware
+
+The resistor sorter machine needed to be strong, but still easy to change as
+the design evolved. For these requirements, our team decided to use 20mm profile
+aluminum extrusion for building the frame. All of the motors and supporting
+hardware are attached to this extrusion. 
+
+![aluminum profile](~/assets/images/resistor-sorter/aluminum-profile.png)
+
+As for the motors, the resistor sorter uses some NEMA 17 bipolar stepper motors
+to move the gantry and effector around. These motors drive a variety of shafts
+and belts directly for the X and Y axes. 
+
+The end-effector uses a rack-and-pinion system to move the electromagnet closer
+to the drawer to open it. The pinion is driven by a servo hidden inside the
+end-effector.
+
+## Electrical
+
+The resistor sorter project uses stepper motors to control the gantry, similar
+to most 3d printers, and a couple of servos to control the end effector. The
+end-effector is responsible for opening and closing drawers with an
+electromagnet and dropping resistors into the drawers. 
+
+The whole system’s schematic looks  like this:
+
+![electrical schematic](~/assets/images/resistor-sorter/resistor-sorter-wiring-diagram.png)
+
+The electronics sport a 20A circuit breaker, an AC-DC power supply, an Arduino
+Uno R3 microcontroller, two limit switches used for homing, and a pair of
+stepper motors and drivers for the X and Y axes. 
+
+The stepper drivers’ 12V supply can be interrupted by an E-Stop switch in case
+the motors are doing something they shouldn’t be.
+
+## Software
+
+![software block diagram](~/assets/images/resistor-sorter/software-flow.png)
+
+The resistor sorter machine's software suite primarily runs on a
+microcontroller. Specifically, the team has implemented an Arduino Uno board
+that controls the stepper motors and other electromechanical components needed
+to manipulate the resistors. 
+
+Manual input is currently needed to tell the gantry where to go, but eventually
+the coordinates will be determined automatically from the detected resistance. 
+
+The hardware control system is designed in such a way that it can receive
+commands over its serial interface from other systems. This results in a modular
+interface available to other projects, like a visual machine learning algorithm
+for identifying the resistors by their color. 
+
+# Conclusion
+
+The students on our project have the opportunity to mix with many different
+skill levels and learn something new every day. 
+
+Our project will continue for the next couple of semesters as we gradually
+implement the resistance detection system and other mechanical upgrades to
+make the sorter fully functional. 
